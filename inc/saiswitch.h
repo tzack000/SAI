@@ -1828,6 +1828,21 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_NAT_ENABLE,
 
     /**
+     * @brief Keep control plane active when shutdown ASIC
+     *
+     * This hint is optional, SAI application could skip this step and
+     * go directly to warm shutdown. When it's set, system will try to keep CPU Tx/Rx active during
+     * controlled shutdown, such that the control plane won't be interrupted,
+     * it's also expected that CPU interface won't be initialized after SAI/SDK restart.
+     *
+     * @type bool
+     * @flags CREATE_AND_SET
+     * @default false
+     */
+    SAI_SWITCH_ATTR_XACTIVE_SHUTDOWN,
+
+
+    /**
      * @brief End of attributes
      */
     SAI_SWITCH_ATTR_END,
